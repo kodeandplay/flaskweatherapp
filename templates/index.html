@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang='en-us'>
+<head>
+  <title>Weather App</title>
+  <meta charset='utf-8' />
+  <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="style.css")}}'/>
+  <link rel='shortcut icon' href='{{ url_for("static", filename="favicon.ico")}}' />
+</head>
+<body>
+  <form>
+    View forecast for city: <input type='text' name='searchcity' />
+    <input type='submit' value='Submit' />
+    <input type='checkbox' name='remember' checked='checked' /> Remember
+  </form>
+  <h1>Weather forecast for {{ city }}, {{ country }}</h1>
+  <table border='1'>
+    <tr>
+      <th>Date</th><th>Min</th><th>Max</th><th>Description</th>
+    </tr>
+    {% for day in forecast_list %}
+    <tr>
+      <td>{{day[0]}}</td>
+      <td>{{day[1]}}</td>
+      <td>{{day[2]}}</td>
+      <td>{{day[3]}}</td>
+    </tr>
+    {% endfor %}
+</body>
+</html>
