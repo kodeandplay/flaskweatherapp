@@ -1,0 +1,1 @@
+print("hello viet nam!")
